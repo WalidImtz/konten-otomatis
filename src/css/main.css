@@ -1,0 +1,73 @@
+:root {
+  --color-background: #111143;
+  --color-surface: #223381;
+  --color-primary: #F98613;
+  --color-text: #FFFFFF;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+@import './tailwind/_base.css';
+@import './tailwind/_components.css';
+@import './tailwind/_utilities.css';
+
+@import './_checkbox-radio-switch.css';
+@import './_progress.css';
+@import './_scrollbars.css';
+@import './_table.css';
+
+@import './styles/_basic.css';
+@import './styles/_white.css';
+
+@config '../../tailwind.config.js';
+
+/* ===== Custom Theme Override ===== */
+
+/* Warna dasar background global */
+body,
+html {
+  background-color: #111143 !important;
+  color: #ffffff;
+}
+
+/* Override dark mode background dari komponen-komponen bawaan */
+.bg-gray-800,
+.bg-slate-800,
+.dark\:bg-slate-800,
+.dark\:bg-slate-900,
+.dark\:bg-slate-800\/50 {
+  background-color: #111143 !important;
+}
+
+/* Card dan Surface */
+.bg-white,
+.dark\:bg-slate-900\/70,
+.bg-surface {
+  background-color: #223381 !important;
+  color: #ffffff !important;
+}
+
+/* Border atau elemen pembatas */
+.border-gray-700,
+.border-slate-700 {
+  border-color: #223381 !important;
+}
+
+.fade-slide-enter-active,
+.fade-slide-leave-active {
+  transition: all 0.5s ease;
+}
+
+.fade-slide-enter-from {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+.fade-slide-leave-to {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
