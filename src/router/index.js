@@ -22,6 +22,11 @@ const routes = [
     component: () => import('@/views/TablesView.vue'),
   },
   {
+    path: '/create-content',
+    name: 'create-content',
+    component: () => import('@/views/CreateContentView.vue'),
+  },
+  {
     meta: {
       title: 'Forms',
     },

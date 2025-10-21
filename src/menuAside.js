@@ -9,8 +9,8 @@ import {
 } from '@mdi/js'
 
 export default [
-  {
-    to: '/forms',
+    {
+    to: '/create-content',
     icon: mdiPlus,
     label: 'Create Content',
   },

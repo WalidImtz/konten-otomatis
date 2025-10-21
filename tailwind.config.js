@@ -19,6 +19,7 @@ module.exports = {
         surface: "#223381",
         primary: "#F98613",
         text: "#FFFFFF",
+        highlight: "#FFD180",
       },
 
       zIndex: {
