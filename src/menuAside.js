@@ -29,7 +29,7 @@ export default [
     ],
   },
   {
-    to: '/tables',
+    to: '/assets-library',
     icon: mdiFolderImage,
     label: 'Assets Library',
   },

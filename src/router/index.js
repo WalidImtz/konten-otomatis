@@ -106,6 +106,37 @@ const routes = [
     name: 'ads-group',
     component: () => import('@/views/AdsManager/AdsGroupView.vue'),
   },
+  {
+    path: '/view-content',
+    name: 'view-content',
+    component: () => import('@/views/ViewContent.vue'),
+    meta: {
+      requiresAuth: true,
+      title: 'View Content',
+    },
+  },
+  {
+    path: '/bulk-content',
+    name: 'bulk-content',
+    component: () => import('@/views/BulkContentView.vue'),
+    meta: {
+      requiresAuth: true,
+      title: 'Create Bulk Content',
+    },
+  },
+  {
+    path: '/assets',
+    name: 'AssetsLibrary',
+    component: () => import('@/views/AssetsLibraryView.vue'),
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/assets/folder/:folderName',
+    name: 'FolderGallery',
+    component: () => import('@/views/FolderGalleryView.vue'),
+    meta: { requiresAuth: true }
+  }
+
 
 ]
 

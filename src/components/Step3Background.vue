@@ -1,8 +1,8 @@
 <template>
   <div class="space-y-8">
-    <!-- Main Grid Area -->
+    <!-- Main Grid -->
     <div class="grid md:grid-cols-3 gap-6">
-      <!-- Upload Background Image (2/3) -->
+      <!-- Upload Background -->
       <CardBox class="px-6 md:col-span-2">
         <h3 class="text-lg font-semibold text-white mb-1">Upload Background Image</h3>
         <p class="text-sm text-gray-300 mb-4">
@@ -10,7 +10,7 @@
         </p>
 
         <div
-          class="border-2 border-dashed border-[#2F3756] rounded-lg p-6 bg-[#5E6FAC] text-center hover:border-[#F98613] transition-all duration-200"
+          class="border-2 border-dashed border-[#2F3756] rounded-lg p-24 bg-[#5E6FAC] text-center hover:border-[#F98613] transition-all duration-200"
           @dragover.prevent
           @drop.prevent="handleDrop"
         >
@@ -36,28 +36,43 @@
         </div>
       </CardBox>
 
-      <!-- File Type Selection (1/3) -->
+      <!-- File Type Selection -->
       <CardBox class="px-6">
         <h3 class="text-lg font-semibold text-white mb-1">File Type</h3>
         <p class="text-sm text-gray-300 mb-4">
           Choose the output file format for your content.
         </p>
 
-        <FormField label="Select file format">
-          <FormCheckRadioGroup
-            v-model="fileType"
-            name="file-type"
-            type="radio"
-            :options="{
-              png: 'PNG',
-              jpg: 'JPG',
-              jpeg: 'JPEG',
-              pdf: 'PDF'
-            }"
-            class="text-white"
-            is-column
-          />
-        </FormField>
+        <div class="space-y-3">
+          <label
+            v-for="(label, key) in fileOptions"
+            :key="key"
+            class="flex items-center gap-3 p-3 rounded-lg border transition-all duration-200 cursor-pointer"
+            :class="[
+              fileType === key
+                ? 'border-[#F98613] bg-[#2F3756]/70 text-white shadow-lg shadow-[#F98613]/20'
+                : 'border-gray-600 text-gray-300 hover:border-[#F98613]/70 hover:shadow-md hover:shadow-[#F98613]/10'
+            ]"
+          >
+            <input
+              type="radio"
+              class="hidden"
+              :value="key"
+              v-model="fileType"
+              name="file-type"
+            />
+            <div
+              class="w-5 h-5 flex items-center justify-center border-2 rounded-full transition-all duration-200"
+              :class="fileType === key ? 'border-[#F98613] bg-[#F98613]' : 'border-gray-400'"
+            >
+              <div
+                v-if="fileType === key"
+                class="w-2 h-2 bg-white rounded-full"
+              ></div>
+            </div>
+            <span class="font-medium">{{ label }}</span>
+          </label>
+        </div>
       </CardBox>
     </div>
   </div>
@@ -66,15 +81,20 @@
 <script setup>
 import { ref } from 'vue'
 import CardBox from '@/components/CardBox.vue'
-import FormField from '@/components/FormField.vue'
-import FormCheckRadioGroup from '@/components/FormCheckRadioGroup.vue'
 
 const fileInput = ref(null)
 const fileName = ref('')
 const previewUrl = ref('')
-const fileType = ref('')
+const fileType = ref('png')
 
 const emit = defineEmits(['finish', 'back'])
+
+const fileOptions = {
+  png: 'PNG (Recommended)',
+  jpg: 'JPG',
+  jpeg: 'JPEG',
+  pdf: 'PDF',
+}
 
 const handleFileUpload = (event) => {
   const file = event.target.files[0]
@@ -91,4 +111,7 @@ const handleDrop = (event) => {
     previewUrl.value = URL.createObjectURL(file)
   }
 }
+
+const prevStep = () => emit('back')
+const finish = () => emit('finish')
 </script>

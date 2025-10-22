@@ -2,6 +2,7 @@
   <LayoutAuthenticated>
     <SectionMain>
       <h1 class="text-2xl font-bold text-white mb-6">Create Content</h1>
+
       <!-- Wizard -->
       <div class="mb-8">
         <CardBox class="px-6">
@@ -22,7 +23,7 @@
         <button
           v-if="currentStep === 1"
           @click="cancel"
-          class="px-8 py-3 bg-highlight hover:highlight text-white text-base font-semibold rounded-xl shadow-md transition-all duration-200"
+          class="px-8 py-3 bg-red-500 hover:bg-red-600 text-white text-base font-semibold rounded-xl shadow-md transition-all duration-200"
         >
           Cancel
         </button>
@@ -31,7 +32,7 @@
         <button
           v-if="currentStep > 1"
           @click="prevStep"
-          class="px-8 py-3 bg-highlight hover:bg-highlight text-white text-base font-semibold rounded-xl shadow-md transition-all duration-200"
+          class="px-8 py-3 bg-gray-600 hover:bg-gray-700 text-white text-base font-semibold rounded-xl shadow-md transition-all duration-200"
         >
           Back
         </button>
@@ -44,27 +45,31 @@
           {{ currentStep < 3 ? 'Next' : 'Finish' }}
         </button>
       </div>
-
-
     </SectionMain>
   </LayoutAuthenticated>
 </template>
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import LayoutAuthenticated from '@/layouts/LayoutAuthenticated.vue'
 import SectionMain from '@/components/SectionMain.vue'
-import BaseButton from '@/components/BaseButton.vue'
 import CardBox from '@/components/CardBox.vue'
 import WizardProgressBar from '@/components/WizardProgressBar.vue'
 import Step1Resolution from '@/components/Step1Resolution.vue'
 import Step2MainContent from '@/components/Step2MainContent.vue'
 import Step3Background from '@/components/Step3Background.vue'
 
+const router = useRouter()
 const currentStep = ref(1)
 
 const nextStep = () => {
-  if (currentStep.value < 3) currentStep.value++
+  if (currentStep.value < 3) {
+    currentStep.value++
+  } else {
+    // Saat step ke-3 ditekan "Finish"
+    router.push({ name: 'view-content' })
+  }
 }
 
 const prevStep = () => {
@@ -72,6 +77,7 @@ const prevStep = () => {
 }
 
 const cancel = () => {
-  currentStep.value = 1
+  // Arahkan kembali ke dashboard
+  router.push({ name: 'dashboard' })
 }
 </script>
