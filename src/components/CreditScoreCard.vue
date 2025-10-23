@@ -10,7 +10,7 @@
       <span
         v-for="i in totalSegments"
         :key="i"
-        class="h-[36px] flex-1 rounded-lg transition-all duration-500 border border-[#223381]"
+        class="h-[36px] flex-1 transition-all duration-500 border border-[#223381]/25"
         :class="getSegmentColor(i)"
       ></span>
     </div>

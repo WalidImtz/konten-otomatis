@@ -64,6 +64,11 @@ onMounted(() => {
             style="width: 900px; height: 500px;"
           >
             <!-- Area Canvas -->
+             <img
+                src="/images/img1.png"
+                class="w-full h-full object-cover"
+                alt="asset"
+              />
           </div>
         </div>
       </div>

@@ -66,14 +66,14 @@ const router = useRouter()
 
 // Gambar dummy dari ImageGallery.vue
 const drafts = [
-  { id: 1, src: '/images/img1.png', title: 'Background 1' },
-  { id: 2, src: '/images/img2.png', title: 'Background 2' },
-  { id: 3, src: '/images/bg3.jpg', title: 'Background 3' },
-  { id: 4, src: '/images/bg4.jpg', title: 'Background 4' },
-  { id: 5, src: '/images/bg5.jpg', title: 'Background 5' },
-  { id: 6, src: '/images/bg6.jpg', title: 'Background 6' },
-  { id: 7, src: '/images/bg7.jpg', title: 'Background 7' },
-  { id: 8, src: '/images/bg8.jpg', title: 'Background 8' },
+  { id: 1, src: './images/img1.png', title: 'Background 1' },
+  { id: 2, src: './images/img2.png', title: 'Background 2' },
+  { id: 3, src: './images/img3.png', title: 'Background 3' },
+  { id: 4, src: './images/img4.png', title: 'Background 4' },
+  { id: 5, src: './images/img5.png', title: 'Background 5' },
+  { id: 6, src: './images/img6.png', title: 'Background 6' },
+  { id: 7, src: './images/img7.png', title: 'Background 7' },
+  { id: 8, src: './images/img8.png', title: 'Background 8' },
 ]
 
 const openDraft = (id) => {

@@ -102,22 +102,22 @@ const itemsPerPage = 8
 // Dummy data
 const allImages = ref({
   background: [
-    { src: '/images/img1.png', title: 'Background 1' },
-    { src: '/images/img2.png', title: 'Background 2' },
-    { src: '/images/bg3.jpg', title: 'Background 3' },
-    { src: '/images/bg4.jpg', title: 'Background 4' },
-    { src: '/images/bg5.jpg', title: 'Background 5' },
-    { src: '/images/bg6.jpg', title: 'Background 6' },
-    { src: '/images/bg7.jpg', title: 'Background 7' },
-    { src: '/images/bg8.jpg', title: 'Background 8' },
-    { src: '/images/bg9.jpg', title: 'Background 9' },
+    { src: './images/img1.png', title: 'Background 1' },
+    { src: './images/img2.png', title: 'Background 2' },
+    { src: './images/img3.png', title: 'Background 3' },
+    { src: './images/img4.png', title: 'Background 4' },
+    { src: './images/img5.png', title: 'Background 5' },
+    { src: './images/img6.png', title: 'Background 6' },
+    { src: './images/img7.png', title: 'Background 7' },
+    { src: './images/img8.png', title: 'Background 8' },
+    { src: './images/bg9.jpg', title: 'Background 9' },
   ],
   elements: [
-    { src: '/images/icon1.png', title: 'Icon Pack' },
-    { src: '/images/decor1.png', title: 'Decoration' },
-    { src: '/images/shape1.png', title: 'Geometric Shape' },
-    { src: '/images/shape2.png', title: 'Shape 2' },
-    { src: '/images/shape3.png', title: 'Shape 3' },
+    { src: './images/icon1.png', title: 'Icon Pack' },
+    { src: './images/decor1.png', title: 'Decoration' },
+    { src: './images/shape1.png', title: 'Geometric Shape' },
+    { src: './images/shape2.png', title: 'Shape 2' },
+    { src: './images/shape3.png', title: 'Shape 3' },
   ],
 })
 
