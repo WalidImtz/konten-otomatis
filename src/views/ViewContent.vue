@@ -14,7 +14,7 @@ import { ref, onMounted } from 'vue'
 
 const title = ref('Untitled Design')
 
-// 🔍 Zoom & Pan Canvas
+// Zoom & Pan Canvas
 const scale = ref(1)
 const translate = ref({ x: 0, y: 0 })
 let isPanning = false
@@ -30,7 +30,7 @@ onMounted(() => {
   })
 
   workspace.addEventListener('mousedown', (e) => {
-    if (e.button !== 0) return // hanya klik kiri
+    if (e.button !== 0) return
     isPanning = true
     start = { x: e.clientX - translate.value.x, y: e.clientY - translate.value.y }
   })
@@ -75,7 +75,7 @@ onMounted(() => {
                shadow-2xl rounded-2xl p-5 flex flex-col justify-between z-50"
       >
         <div>
-          <!-- 🔹 Edit Title -->
+          <!-- Edit Title -->
           <div class="mb-5">
             <label class="block text-sm mb-1 opacity-80">Title</label>
             <input
@@ -86,7 +86,7 @@ onMounted(() => {
             />
           </div>
 
-          <!-- 🔹 Tools -->
+          <!-- Tools -->
           <div class="space-y-3">
             <div class="flex flex-wrap gap-2">
               <BaseButton icon="mdiImageMultiple" color="white" small outline label="Assets" />
@@ -101,7 +101,7 @@ onMounted(() => {
           </div>
         </div>
 
-        <!-- 🔹 Tombol utama -->
+        <!-- Tombol utama -->
         <div class="mt-6 flex flex-col gap-3">
           <BaseButton
             icon="mdiUploadMultiple"

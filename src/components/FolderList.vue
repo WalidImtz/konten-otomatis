@@ -1,12 +1,12 @@
 <template>
   <div class="space-y-6">
-    <!-- Header: Title + Toolbar -->
+    <!-- Header -->
     <div
       class="flex flex-col md:flex-row md:items-center md:justify-between gap-4"
     >
       <h2 class="text-lg font-semibold text-white">Folders</h2>
 
-      <!-- Toolbar kanan -->
+      <!-- Toolbar -->
       <div class="flex flex-wrap items-center justify-end gap-3 w-full md:w-auto">
         <!-- Add Folder -->
         <BaseButton

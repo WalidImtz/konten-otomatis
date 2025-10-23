@@ -1,6 +1,6 @@
 <template>
   <CardBox class="px-6">
-    <!-- Header: Tabs + Toolbar -->
+    <!-- Header -->
     <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6 gap-4">
       <!-- Stepper Kategori -->
       <div class="flex items-center gap-6 border-b border-[#2F3756] pb-2">
@@ -19,7 +19,7 @@
         </button>
       </div>
 
-      <!-- Toolbar kanan -->
+      <!-- Toolbar -->
       <div class="flex flex-wrap items-center justify-end gap-3 w-full md:w-auto">
         <!-- Add New -->
         <BaseButton
@@ -99,7 +99,7 @@ const searchQuery = ref('')
 const page = ref(1)
 const itemsPerPage = 8
 
-// Dummy data (gunakan gambar yang ada di /public/images)
+// Dummy data
 const allImages = ref({
   background: [
     { src: '/images/img1.png', title: 'Background 1' },

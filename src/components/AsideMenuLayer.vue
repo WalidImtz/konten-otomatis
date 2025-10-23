@@ -17,10 +17,10 @@ const props = defineProps({
 const emit = defineEmits(['menu-click', 'aside-lg-close-click'])
 
 /* STATES */
-const isCollapsed = ref(false)     // desktop manual collapse
-const isHovered = ref(false)       // desktop hover-expand
-const isMobile = ref(false)        // true saat width <= breakpoint
-const isDrawerOpen = ref(false)    // mobile drawer open/close
+const isCollapsed = ref(false)
+const isHovered = ref(false)
+const isMobile = ref(false)
+const isDrawerOpen = ref(false)    
 const route = useRoute()
 
 /* helper */
@@ -28,10 +28,9 @@ const desktopBreakpoint = 768
 
 const checkMobile = () => {
   isMobile.value = window.innerWidth <= desktopBreakpoint
-  // jika pindah ke desktop, tutup drawer
   if (!isMobile.value) {
     isDrawerOpen.value = false
-    document.body.style.overflow = '' // restore
+    document.body.style.overflow = ''
   }
 }
 
@@ -46,7 +45,6 @@ onBeforeUnmount(() => {
 
 /* actions */
 const toggleCollapse = () => {
-  // hanya berlaku pada desktop
   if (isMobile.value) return
   isCollapsed.value = !isCollapsed.value
 }
@@ -54,7 +52,6 @@ const toggleCollapse = () => {
 const toggleDrawer = () => {
   if (!isMobile.value) return
   isDrawerOpen.value = !isDrawerOpen.value
-  // lock body scroll saat drawer terbuka (opsional)
   document.body.style.overflow = isDrawerOpen.value ? 'hidden' : ''
 }
 
@@ -65,9 +62,7 @@ const closeDrawer = () => {
 }
 
 const menuClick = (event, item) => {
-  // emit event untuk navigasi
   emit('menu-click', event, item)
-  // jika mobile, menutup drawer setelah klik navigasi
   if (isMobile.value) closeDrawer()
 }
 
@@ -108,7 +103,7 @@ const handleMouseLeave = () => {
         ? (isDrawerOpen ? 'translate-x-0 w-64 left-0' : '-translate-x-full w-64 left-0')
         // DESKTOP behavior:
         : ((isCollapsed && !isHovered)
-            ? 'w-16 left-4'
+            ? 'w-12 left-4'
             : 'w-60 left-4'),
     ]"
     @mouseenter="handleMouseEnter"
@@ -130,7 +125,7 @@ const handleMouseLeave = () => {
         <!-- Collapse button: hanya berfungsi di desktop  -->
         <button
           v-if="!isMobile"
-          class="p-2 rounded-md hover:bg-[#223381] transition-colors ml-auto"
+          class="rounded-md hover:bg-[#223381] transition-colors ml-auto"
           @click="toggleCollapse"
           :title="isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'"
         >

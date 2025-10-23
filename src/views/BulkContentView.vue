@@ -2,12 +2,10 @@
   <LayoutAuthenticated>
     <SectionMain>
       <h1 class="text-2xl font-bold text-white mb-6">Create Bulk Content</h1>
-
-      <!-- Struktur mirip step3background -->
       <div class="space-y-8">
         <div class="grid md:grid-cols-3 gap-6">
           
-          <!-- 🧾 Upload Excel File -->
+          <!-- Upload Excel File -->
           <CardBox class="px-6 md:col-span-2">
             <h3 class="text-lg font-semibold text-white mb-1">Upload Data Excel</h3>
             <p class="text-sm text-gray-300 mb-4">
@@ -41,7 +39,7 @@
             </div>
           </CardBox>
 
-          <!-- 🔧 Kanan: Change Background + Download Template -->
+          <!-- Change Background + Download Template -->
           <div class="flex flex-col gap-6">
             
             <!-- Change Background -->
@@ -87,7 +85,7 @@
         </div>
       </div>
 
-      <!-- Tombol navigasi bawah (seperti di createcontent.vue) -->
+      <!-- Tombol navigasi bawah -->
       <div class="flex justify-end gap-4 mt-6 pb-10">
         <button
           @click="goBack"
@@ -120,7 +118,6 @@ const fileInput = ref(null)
 const fileName = ref('')
 const previewImage = ref('')
 
-// ✅ Handle upload Excel
 const handleFileUpload = (event) => {
   const file = event.target.files[0]
   if (file) {
@@ -128,7 +125,6 @@ const handleFileUpload = (event) => {
   }
 }
 
-// ✅ Handle drag & drop file
 const handleDrop = (event) => {
   const file = event.dataTransfer.files[0]
   if (file) {
@@ -136,23 +132,19 @@ const handleDrop = (event) => {
   }
 }
 
-// ✅ Simulasi buka Asset Library
 const openAssetLibrary = () => {
   alert('📁 Simulasi membuka Asset Library (dummy)')
   previewImage.value = 'https://placehold.co/600x400/5E6FAC/FFFFFF?text=Background+Preview'
 }
 
-// ✅ Download template Excel (dummy)
 const downloadTemplate = () => {
   alert('⬇️ Simulasi unduh template Excel')
 }
 
-// ✅ Tombol generate
 const generateBulk = () => {
   alert('🚀 Simulasi proses generate konten massal')
 }
 
-// ✅ Tombol kembali
 const goBack = () => {
   router.push({ name: 'view-content' })
 }

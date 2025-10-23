@@ -3,7 +3,7 @@
     <!-- Main Grid -->
     <div class="grid md:grid-cols-3 gap-6">
       <!-- Upload Background -->
-      <CardBox class="px-6 md:col-span-2">
+      <CardBox id="background-upload" class="px-6 md:col-span-2">
         <h3 class="text-lg font-semibold text-white mb-1">Upload Background Image</h3>
         <p class="text-sm text-gray-300 mb-4">
           Upload an image to be used as the background for your generated content.
@@ -37,7 +37,7 @@
       </CardBox>
 
       <!-- File Type Selection -->
-      <CardBox class="px-6">
+      <CardBox id="file-type-select" class="px-6">
         <h3 class="text-lg font-semibold text-white mb-1">File Type</h3>
         <p class="text-sm text-gray-300 mb-4">
           Choose the output file format for your content.

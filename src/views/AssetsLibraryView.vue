@@ -2,10 +2,10 @@
   <LayoutAuthenticated>
     <SectionMain>
       <div class="space-y-8">
-        <!-- ✅ Folder Section -->
+        <!-- Folder Section -->
         <FolderList />
 
-        <!-- ✅ Gallery Section -->
+        <!-- Gallery Section -->
         <ImageGallery />
       </div>
     </SectionMain>

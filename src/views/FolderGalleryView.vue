@@ -1,7 +1,7 @@
 <template>
   <LayoutAuthenticated>
     <SectionMain>
-      <!-- Header: Tombol Back + Judul -->
+      <!-- Header -->
       <div class="flex items-center justify-between mb-6">
         <div class="flex items-center gap-3">
           <!-- Tombol Back -->
@@ -89,12 +89,11 @@ const route = useRoute()
 const folderName = ref(route.params.folderName || 'My Folder')
 const searchQuery = ref('')
 
-// Fungsi kembali ke halaman Assets Library
 const goBack = () => {
   router.push({ name: 'AssetsLibrary' })
 }
 
-// Dummy data (pastikan file ada di public/images/)
+// Dummy data
 const images = ref([
   { src: '/images/logo1.png', title: 'Logo 1' },
   { src: '/images/logo2.png', title: 'Logo 2' },

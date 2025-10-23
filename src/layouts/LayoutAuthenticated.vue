@@ -1,36 +1,7 @@
-<script setup>
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-import menuAside from '@/menuAside.js'
-import { useDarkModeStore } from '@/stores/darkMode.js'
-import AsideMenu from '@/components/AsideMenu.vue'
-import FooterBar from '@/components/FooterBar.vue'
-
-const darkModeStore = useDarkModeStore()
-const router = useRouter()
-
-const isAsideMobileExpanded = ref(false)
-const isAsideLgActive = ref(false)
-
-router.beforeEach(() => {
-  isAsideMobileExpanded.value = false
-  isAsideLgActive.value = false
-})
-
-const menuClick = (event, item) => {
-  if (item.isToggleLightDark) {
-    darkModeStore.set()
-  }
-  if (item.isLogout) {
-    // aksi logout di sini
-  }
-}
-</script>
-
 <template>
   <div class="relative min-h-screen bg-background text-text transition-all">
 
-    <!-- ✅ Sidebar floating -->
+    <!-- Sidebar -->
     <AsideMenu
       :menu="menuAside"
       :is-aside-mobile-expanded="isAsideMobileExpanded"
@@ -40,17 +11,59 @@ const menuClick = (event, item) => {
       @aside-lg-close-click="isAsideLgActive = false"
     />
 
-    <!-- ✅ Konten utama -->
+    <!-- Konten utama -->
     <main class="pl-8">
       <slot />
     </main>
 
-    <!-- ✅ Footer -->
+    <!-- Onboarding Overlay -->
+    <OnboardingOverlay />
+
+    <!-- Footer -->
     <FooterBar class="mt-10 text-center">
       Get more with
-      <a href="https://tailwind-vue.justboil.me/" target="_blank" class="text-primary font-semibold">
+      <a
+        href="https://tailwind-vue.justboil.me/"
+        target="_blank"
+        class="text-primary font-semibold"
+      >
         Premium version
       </a>
     </FooterBar>
   </div>
 </template>
+
+<script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { useRouter } from 'vue-router'
+import menuAside from '@/menuAside.js'
+import AsideMenu from '@/components/AsideMenu.vue'
+import FooterBar from '@/components/FooterBar.vue'
+import OnboardingOverlay from '@/components/OnboardingOverlay.vue'
+import { eventBus } from '@/utils/eventBus.js'
+
+const router = useRouter()
+
+const isAsideMobileExpanded = ref(false)
+const isAsideLgActive = ref(false)
+const onboardingRef = ref(null)
+
+router.beforeEach(() => {
+  isAsideMobileExpanded.value = false
+  isAsideLgActive.value = false
+})
+
+onMounted(() => {
+  const alreadySeen = localStorage.getItem('onboardingDone')
+  if (!alreadySeen) onboardingRef.value?.openOnboarding()
+
+  // Dengarkan event global untuk membuka onboarding manual
+  eventBus.on('open-onboarding', () => {
+    onboardingRef.value?.openOnboarding()
+  })
+})
+
+onBeforeUnmount(() => {
+  eventBus.off('open-onboarding')
+})
+</script>

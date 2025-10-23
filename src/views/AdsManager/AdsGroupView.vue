@@ -33,7 +33,7 @@ const filteredResolutions = computed(() => {
         Ads Manager › Resolution Configuration
       </h1>
 
-      <!-- Header: Add New & Search -->
+      <!-- Header -->
       <div
         class="flex flex-col sm:flex-row justify-between sm:justify-end items-stretch sm:items-center gap-3 mb-6"
       >

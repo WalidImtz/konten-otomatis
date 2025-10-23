@@ -3,13 +3,12 @@ import AsideMenuLayer from '@/components/AsideMenuLayer.vue'
 import OverlayLayer from '@/components/OverlayLayer.vue'
 
 defineProps({
-  menu: {
-    type: Array,
-    required: true,
-  },
+  menu: Array,
   isAsideMobileExpanded: Boolean,
   isAsideLgActive: Boolean,
+  class: String
 })
+
 
 const emit = defineEmits(['menu-click', 'aside-lg-close-click'])
 
@@ -23,7 +22,7 @@ const asideLgCloseClick = (event) => {
 </script>
 
 <template>
-  <!-- 🔹 Sidebar utama (tanpa posisi tetap di sini) -->
+  <!-- Sidebar utama -->
   <div
     class="w-full h-full rounded-2xl bg-surface text-white shadow-xl border border-[#223381] overflow-hidden transition-all"
   >
@@ -34,6 +33,6 @@ const asideLgCloseClick = (event) => {
     />
   </div>
 
-  <!-- 🔹 Overlay untuk mobile -->
+  <!-- Overlay untuk mobile -->
   <OverlayLayer v-show="isAsideLgActive" z-index="z-30" @overlay-click="asideLgCloseClick" />
 </template>

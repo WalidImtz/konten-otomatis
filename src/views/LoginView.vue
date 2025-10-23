@@ -28,7 +28,6 @@ const goToRegister = () => {
   <div class="min-h-screen flex items-center justify-center bg-background text-text">
     <div class="flex flex-col lg:flex-row w-full max-w-5xl rounded-3xl overflow-hidden shadow-xl border border-white/10">
 
-      <!-- KIRI: Gambar + Nama Aplikasi -->
       <div
         class="relative lg:w-1/2 w-full h-56 lg:h-auto bg-cover bg-center flex items-center justify-center"
         style="background-image: url('/images/login-illust.svg');"
@@ -39,7 +38,6 @@ const goToRegister = () => {
         </h1>
       </div>
 
-      <!-- KANAN: Form Login -->
       <div class="lg:w-1/2 w-full bg-surface/80 backdrop-blur-md p-10 flex flex-col justify-center">
         <h2 class="text-2xl font-semibold mb-6 text-center lg:text-left">Masuk ke Akun</h2>
 

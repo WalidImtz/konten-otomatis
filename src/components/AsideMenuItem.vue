@@ -13,7 +13,6 @@ const props = defineProps({
 const emit = defineEmits(['menu-click'])
 const route = useRoute()
 
-// Cek apakah item ini aktif berdasarkan route saat ini
 const isActive = computed(() => {
   if (!props.item.to) return false
   return route.path === props.item.to || route.path.startsWith(props.item.to + '/')

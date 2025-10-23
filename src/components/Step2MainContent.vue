@@ -18,7 +18,7 @@
       </CardBox>
 
       <!-- Card Ads Group (1/3) -->
-      <CardBox class="px-6">
+      <CardBox id="ads-group-select" class="px-6">
         <h3 class="text-lg font-semibold text-white mb-1">Ads Group</h3>
         <p class="text-sm text-gray-300 mb-4">
           Select an Ads Group to categorize this content.

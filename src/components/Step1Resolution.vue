@@ -1,7 +1,7 @@
 <template>
   <div class="grid md:grid-cols-2 gap-6">
     <!-- Card Resolution -->
-    <CardBox class="px-6">
+    <CardBox id="step1-resolution" class="px-6">
       <h3 class="text-lg font-semibold text-white mb-1">Resolution</h3>
       <p class="text-sm text-gray-300 mb-4">
         Choose the desired output resolution (e.g., 1080x1080, 1920x1080).
@@ -15,7 +15,7 @@
     </CardBox>
 
     <!-- Card Layout -->
-    <CardBox class="px-6">
+    <CardBox id="step1-layout" class="px-6">
       <h3 class="text-lg font-semibold text-white mb-1">Layout</h3>
       <p class="text-sm text-gray-300 mb-4">
         Select a layout style that fits your content composition.

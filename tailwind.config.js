@@ -3,8 +3,6 @@ const plugin = require("tailwindcss/plugin");
 
 module.exports = {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx,css}"],
-
-  // 🔸 Nonaktifkan dark mode
   darkMode: false,
 
   theme: {
@@ -13,7 +11,6 @@ module.exports = {
       gray: "gray",
     },
     extend: {
-      // 🔹 Tambahkan warna tema
       colors: {
         background: "#111143",
         surface: "#223381",
