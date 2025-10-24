@@ -62,12 +62,10 @@ import Step2MainContent from '@/components/Step2MainContent.vue'
 import Step3Background from '@/components/Step3Background.vue'
 import { useOnboardingStore } from '@/stores/useOnboardingStore'
 
-// ========== SETUP ==========
 const router = useRouter()
 const onboarding = useOnboardingStore()
 const currentStep = ref(1)
 
-// ========== NAVIGATION ==========
 const nextStep = () => {
   if (currentStep.value < 3) {
     currentStep.value++
@@ -84,9 +82,7 @@ const cancel = () => {
   router.push({ name: 'dashboard' })
 }
 
-// ========== ONBOARDING SYNC ==========
 onMounted(() => {
-  // Sinkronisasi dengan onboarding
   onboarding.$subscribe((_, state) => {
     const id = state.currentStep
     if (id >= 3 && id <= 5) currentStep.value = 1
@@ -96,7 +92,6 @@ onMounted(() => {
 })
 
 
-// ========== ONBOARDING BUTTON ID ==========
 const getNextButtonId = computed(() => {
   if (currentStep.value === 1) return 'onboarding-next-1'
   if (currentStep.value === 2) return 'onboarding-next-2'
@@ -104,11 +99,9 @@ const getNextButtonId = computed(() => {
   return null
 })
 
-// ========== ROUTE WATCHER ==========
 watch(
   () => router.currentRoute.value.name,
   (newRoute) => {
-    // Jika onboarding aktif dan berpindah route ke create-content, tampilkan popup kembali
     if (newRoute === 'create-content' && onboarding.isActive) {
       setTimeout(() => onboarding.showCurrentStep(), 300)
     }

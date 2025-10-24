@@ -23,7 +23,7 @@ export default [
     label: 'Ads Manager',
     icon: mdiBullhornOutline,
     menu: [
-      { to: '/ads/image-generator', icon: mdiImage, label: 'Image Generator' },
+      // { to: '/ads/image-generator', icon: mdiImage, label: 'Image Generator' },
       { to: '/ads/resolution', icon: mdiResize, label: 'Resolution' },
       { to: '/ads/group', icon: mdiFolderMultipleOutline, label: 'Ads Manager Group' },
     ],

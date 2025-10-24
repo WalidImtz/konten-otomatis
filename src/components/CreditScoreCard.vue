@@ -5,7 +5,6 @@
       <span class="text-sm text-gray-300">{{ score }}/{{ maxScore }}</span>
     </div>
 
-    <!-- Segmented Score Bar -->
     <div class="flex">
       <span
         v-for="i in totalSegments"
@@ -25,10 +24,10 @@ const score = ref(23)
 const maxScore = ref(100)
 const totalSegments = 100
 
-// Hitung segment aktif berdasarkan score
+// Hitung segmen aktif berdasarkan skor
 const activeSegments = computed(() => Math.round((score.value / maxScore.value) * totalSegments))
 
-// Segment warna dinamis
+// Warna segmen dinamis
 const getSegmentColor = (i) => {
   if (i <= activeSegments.value) {
     const colorSteps = ['bg-primary', 'bg-highlight']

@@ -57,7 +57,6 @@ onMounted(() => {
   const alreadySeen = localStorage.getItem('onboardingDone')
   if (!alreadySeen) onboardingRef.value?.openOnboarding()
 
-  // Dengarkan event global untuk membuka onboarding manual
   eventBus.on('open-onboarding', () => {
     onboardingRef.value?.openOnboarding()
   })

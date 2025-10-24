@@ -1,34 +1,34 @@
 <template>
   <div class="space-y-8">
-    <!-- Form Area -->
+    <!-- Area Form -->
     <div class="grid md:grid-cols-3 gap-6">
-      <!-- Card Main Content (2/3) -->
+      <!-- Kartu Konten Utama -->
       <CardBox class="px-6 md:col-span-2">
-        <h3 class="text-lg font-semibold text-white mb-1">Main Content</h3>
+        <h3 class="text-lg font-semibold text-white mb-1">Konten Utama</h3>
         <p class="text-sm text-gray-300 mb-4">
-          Write the main text that will appear in your generated content.
+          Tulis teks utama yang akan muncul di konten yang dihasilkan.
         </p>
         <textarea
           v-model="mainContent"
           rows="8"
-          placeholder="Type your main content here..."
+          placeholder="Ketik konten utama Anda di sini..."
           class="w-full p-3 rounded bg-[#5E6FAC] border border-[#2F3756] text-white 
                  focus:outline-none focus:ring-2 focus:ring-[#F98613] resize-none"
         ></textarea>
       </CardBox>
 
-      <!-- Card Ads Group (1/3) -->
+      <!-- Kartu Grup Iklan -->
       <CardBox id="ads-group-select" class="px-6">
-        <h3 class="text-lg font-semibold text-white mb-1">Ads Group</h3>
+        <h3 class="text-lg font-semibold text-white mb-1">Grup Iklan</h3>
         <p class="text-sm text-gray-300 mb-4">
-          Select an Ads Group to categorize this content.
+          Pilih Grup Iklan untuk mengkategorikan konten ini.
         </p>
         <select
           v-model="adsGroup"
           class="w-full p-2 rounded bg-[#5E6FAC] border border-[#2F3756] text-white 
                  focus:outline-none focus:ring-2 focus:ring-[#F98613]"
         >
-          <option value="">Select Ads Group</option>
+          <option value="">Pilih Grup Iklan</option>
           <option v-for="group in adsGroups" :key="group.id" :value="group.name">
             {{ group.name }}
           </option>
@@ -42,14 +42,13 @@
 import { ref } from 'vue'
 import CardBox from '@/components/CardBox.vue'
 
-// Form state
 const mainContent = ref('')
 const adsGroup = ref('')
 
-// Dummy ads group list
+// Daftar grup iklan dummy
 const adsGroups = ref([
-  { id: 1, name: 'Promo Campaign' },
+  { id: 1, name: 'Kampanye Promo' },
   { id: 2, name: 'Brand Awareness' },
-  { id: 3, name: 'Product Launch' },
+  { id: 3, name: 'Peluncuran Produk' },
 ])
 </script>

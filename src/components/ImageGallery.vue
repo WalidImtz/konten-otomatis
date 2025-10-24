@@ -25,7 +25,7 @@
         <BaseButton
           :icon="mdiPlus"
           color="primary"
-          label="Add New"
+          label="Tambah Baru"
           class="!rounded-lg font-medium text-sm shadow-md hover:shadow-lg transition-all"
         />
 
@@ -42,7 +42,7 @@
           <BaseInput
             v-model="searchQuery"
             :icon="mdiMagnify"
-            placeholder="Search image..."
+            placeholder="Cari gambar..."
             class="w-full !rounded-lg !bg-[#5E6FAC] !border-[#2F3756] text-white placeholder-white/60 focus:ring-2 focus:ring-[#6f80c9]"
           />
         </div>
@@ -66,15 +66,15 @@
         @click="prevPage"
         :disabled="page === 1"
       >
-        Prev
+        Sebelumnya
       </button>
-      <span class="text-white text-sm">Page {{ page }} / {{ totalPages }}</span>
+      <span class="text-white text-sm">Halaman {{ page }} / {{ totalPages }}</span>
       <button
         class="px-3 py-1 bg-highlight text-white rounded-md text-sm hover:opacity-90"
         @click="nextPage"
         :disabled="page === totalPages"
       >
-        Next
+        Selanjutnya
       </button>
     </div>
   </CardBox>
@@ -90,8 +90,8 @@ import { mdiPlus, mdiMagnify } from '@mdi/js'
 
 // Tabs
 const steps = [
-  { label: 'Background', value: 'background' },
-  { label: 'Elements', value: 'elements' },
+  { label: 'Latar Belakang', value: 'background' },
+  { label: 'Elemen', value: 'elements' },
 ]
 
 const activeStep = ref('background')
@@ -113,11 +113,11 @@ const allImages = ref({
     { src: './images/bg9.jpg', title: 'Background 9' },
   ],
   elements: [
-    { src: './images/icon1.png', title: 'Icon Pack' },
-    { src: './images/decor1.png', title: 'Decoration' },
-    { src: './images/shape1.png', title: 'Geometric Shape' },
-    { src: './images/shape2.png', title: 'Shape 2' },
-    { src: './images/shape3.png', title: 'Shape 3' },
+    { src: './images/icon1.png', title: 'Paket Ikon' },
+    { src: './images/decor1.png', title: 'Dekorasi' },
+    { src: './images/shape1.png', title: 'Bentuk Geometri' },
+    { src: './images/shape2.png', title: 'Bentuk 2' },
+    { src: './images/shape3.png', title: 'Bentuk 3' },
   ],
 })
 

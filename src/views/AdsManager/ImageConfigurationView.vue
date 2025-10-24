@@ -21,35 +21,33 @@ const isEditing = ref(false)
 <template>
   <LayoutAuthenticated>
     <SectionMain>
-      <!-- Title kiri atas -->
+      <!-- Title -->
       <h1 class="text-2xl font-bold text-white mb-6">Ads Manager > Image Generator Configuration</h1>
 
       <CardBox
         class="relative p-6 shadow-lg border border-[#2F3756] bg-[#5E6FAC] rounded-2xl"
       >
-        <!-- Tombol Edit di pojok kanan atas -->
+        <!-- Tombol Edit -->
         <BaseButton
           @click="isEditing = !isEditing"
-          :label="isEditing ? 'Save' : 'Edit'"
+          :label="isEditing ? 'Simpan' : 'Edit'"
           color="contrast"
           class="absolute top-4 right-4"
         />
 
-        <!-- Grid dua kolom -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-4">
-          <!-- Kolom Kiri -->
           <div class="space-y-6">
             <!-- Main Background -->
             <div>
-              <h3 class="text-white font-semibold">Main Background Size</h3>
+              <h3 class="text-white font-semibold">Ukuran Background Utama</h3>
               <p class="text-sm text-white/80 mb-2">
-                Specify the maximum background image size in kilobytes (e.g., 500 KB). Keep it lightweight for faster loading.
+                Tentukan ukuran maksimum gambar background dalam kilobyte (misal: 500 KB). Gunakan ukuran ringan agar loading lebih cepat.
               </p>
               <div class="flex items-center gap-2">
                 <FormControl
                   v-model="form.mainBg"
                   :disabled="!isEditing"
-                  placeholder="Enter size"
+                  placeholder="Masukkan ukuran"
                   class="custom-input w-full"
                 />
                 <span class="text-sm font-medium text-white/90">KB</span>
@@ -58,89 +56,89 @@ const isEditing = ref(false)
 
             <!-- Title Length -->
             <div>
-              <h3 class="text-white font-semibold">Title Length</h3>
+              <h3 class="text-white font-semibold">Panjang Judul</h3>
               <p class="text-sm text-white/80 mb-2">
-                Specify the maximum title length in characters.
+                Tentukan panjang maksimum judul dalam jumlah karakter.
               </p>
               <div class="flex items-center gap-2">
                 <FormControl
                   v-model="form.titleLength"
                   :disabled="!isEditing"
-                  placeholder="Enter length"
+                  placeholder="Masukkan panjang"
                   class="custom-input w-full"
                 />
-                <span class="text-sm font-medium text-white/90">characters</span>
+                <span class="text-sm font-medium text-white/90">karakter</span>
               </div>
             </div>
 
             <!-- Subtitle -->
             <div>
-              <h3 class="text-white font-semibold">Subtitle Length</h3>
+              <h3 class="text-white font-semibold">Panjang Subjudul</h3>
               <p class="text-sm text-white/80 mb-2">
-                Specify the maximum subtitle length in characters.
+                Tentukan panjang maksimum subjudul dalam jumlah karakter.
               </p>
               <div class="flex items-center gap-2">
                 <FormControl
                   v-model="form.subtitle"
                   :disabled="!isEditing"
-                  placeholder="Enter length"
+                  placeholder="Masukkan panjang"
                   class="custom-input w-full"
                 />
-                <span class="text-sm font-medium text-white/90">characters</span>
+                <span class="text-sm font-medium text-white/90">karakter</span>
               </div>
             </div>
           </div>
 
-          <!-- Kolom Kanan -->
+      
           <div class="space-y-6">
             <!-- Description -->
             <div>
-              <h3 class="text-white font-semibold">Description Length</h3>
+              <h3 class="text-white font-semibold">Panjang Deskripsi</h3>
               <p class="text-sm text-white/80 mb-8">
-                Specify the maximum description length in characters.
+                Tentukan panjang maksimum deskripsi dalam jumlah karakter.
               </p>
               <div class="flex items-center gap-2">
                 <FormControl
                   v-model="form.description"
                   :disabled="!isEditing"
-                  placeholder="Enter length"
+                  placeholder="Masukkan panjang"
                   class="custom-input w-full"
                 />
-                <span class="text-sm font-medium text-white/90">characters</span>
+                <span class="text-sm font-medium text-white/90">karakter</span>
               </div>
             </div>
 
             <!-- Footer -->
             <div>
-              <h3 class="text-white font-semibold">Footer Text Length</h3>
+              <h3 class="text-white font-semibold">Panjang Teks Footer</h3>
               <p class="text-sm text-white/80 mb-2">
-                Specify the maximum footer text length in characters.
+                Tentukan panjang maksimum teks footer dalam jumlah karakter.
               </p>
               <div class="flex items-center gap-2">
                 <FormControl
                   v-model="form.footer"
                   :disabled="!isEditing"
-                  placeholder="Enter length"
+                  placeholder="Masukkan panjang"
                   class="custom-input w-full"
                 />
-                <span class="text-sm font-medium text-white/90">characters</span>
+                <span class="text-sm font-medium text-white/90">karakter</span>
               </div>
             </div>
 
             <!-- Button -->
             <div>
-              <h3 class="text-white font-semibold">Button Text Length</h3>
+              <h3 class="text-white font-semibold">Panjang Teks Tombol</h3>
               <p class="text-sm text-white/80 mb-2">
-                Specify the maximum button text length in characters.
+                Tentukan panjang maksimum teks tombol dalam jumlah karakter.
               </p>
               <div class="flex items-center gap-2">
                 <FormControl
                   v-model="form.buttonText"
                   :disabled="!isEditing"
-                  placeholder="Enter length"
+                  placeholder="Masukkan panjang"
                   class="custom-input w-full"
                 />
-                <span class="text-sm font-medium text-white/90">characters</span>
+                <span class="text-sm font-medium text-white/90">karakter</span>
               </div>
             </div>
           </div>
@@ -149,6 +147,7 @@ const isEditing = ref(false)
     </SectionMain>
   </LayoutAuthenticated>
 </template>
+
 
 <style scoped>
 .custom-input input,

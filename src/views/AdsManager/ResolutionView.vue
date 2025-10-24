@@ -29,7 +29,7 @@ const filteredResolutions = computed(() => {
 <template>
   <LayoutAuthenticated>
     <SectionMain>
-      <!-- Judul Halaman -->
+      <!-- Judul -->
       <h1 class="text-2xl font-bold text-white mb-6">
         Ads Manager › Resolution Configuration
       </h1>
@@ -41,7 +41,7 @@ const filteredResolutions = computed(() => {
         <BaseButton
           :icon="mdiPlus"
           color="primary"
-          label="Add New Config"
+          label="Tambah Konfigurasi"
           class="!rounded-lg font-medium text-sm shadow-md hover:shadow-lg transition-all w-full sm:w-auto"
         />
 
@@ -49,7 +49,7 @@ const filteredResolutions = computed(() => {
           <BaseInput
             v-model="searchQuery"
             :icon="mdiMagnify"
-            placeholder="Search resolution..."
+            placeholder="Cari resolusi..."
             class="w-full !rounded-lg !bg-[#5E6FAC] !border-[#2F3756] text-white placeholder-white/60 focus:ring-2 focus:ring-[#6f80c9]"
           />
         </div>
@@ -67,10 +67,10 @@ const filteredResolutions = computed(() => {
             <thead class="bg-[#2F3D79] text-white uppercase tracking-wide">
               <tr>
                 <th class="px-5 py-3 text-center whitespace-nowrap">No</th>
-                <th class="px-5 py-3 text-center whitespace-nowrap">Ratio</th>
-                <th class="px-5 py-3 text-center whitespace-nowrap">Width</th>
-                <th class="px-5 py-3 text-center whitespace-nowrap">Height</th>
-                <th class="px-5 py-3 text-center whitespace-nowrap">Actions</th>
+                <th class="px-5 py-3 text-center whitespace-nowrap">Rasio</th>
+                <th class="px-5 py-3 text-center whitespace-nowrap">Lebar</th>
+                <th class="px-5 py-3 text-center whitespace-nowrap">Tinggi</th>
+                <th class="px-5 py-3 text-center whitespace-nowrap">Aksi</th>
               </tr>
             </thead>
             <tbody>
@@ -90,12 +90,14 @@ const filteredResolutions = computed(() => {
                       color="info"
                       small
                       class="hover:scale-105 transition-transform"
+                      :label="'Ubah'"
                     />
                     <BaseButton
                       :icon="mdiTrashCan"
                       color="danger"
                       small
                       class="hover:scale-105 transition-transform"
+                      :label="'Hapus'"
                     />
                   </div>
                 </td>
@@ -103,7 +105,7 @@ const filteredResolutions = computed(() => {
 
               <tr v-if="filteredResolutions.length === 0">
                 <td colspan="5" class="text-center py-6 text-gray-400">
-                  No results found.
+                  Tidak ada hasil ditemukan.
                 </td>
               </tr>
             </tbody>

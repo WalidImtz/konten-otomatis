@@ -28,7 +28,7 @@
 
       <!-- Card utama -->
       <CardBox class="px-6 py-6">
-        <!-- Toolbar atas -->
+        <!-- Toolbar -->
         <div class="flex flex-wrap items-center justify-between mb-6 gap-4">
           <!-- Info Folder -->
           <div>

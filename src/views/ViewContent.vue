@@ -12,9 +12,8 @@ import {
 } from '@mdi/js'
 import { ref, onMounted } from 'vue'
 
-const title = ref('Untitled Design')
+const title = ref('Desain Tanpa Judul')
 
-// Zoom & Pan Canvas
 const scale = ref(1)
 const translate = ref({ x: 0, y: 0 })
 let isPanning = false
@@ -48,7 +47,7 @@ onMounted(() => {
 <template>
   <LayoutAuthenticated>
     <div class="relative h-screen bg-background text-white overflow-hidden">
-      <!-- Workspace interaktif -->
+      <!-- Workspace -->
       <div
         id="workspace"
         class="w-full h-full overflow-hidden cursor-grab active:cursor-grabbing"
@@ -73,29 +72,29 @@ onMounted(() => {
         </div>
       </div>
 
-      <!-- Toolbar kanan atas -->
+      <!-- Toolbar -->
       <aside
         class="fixed right-4 top-4 w-60 h-[60vh]
                bg-surface/95 backdrop-blur-xl border border-[#2F3756]
                shadow-2xl rounded-2xl p-5 flex flex-col justify-between z-50"
       >
         <div>
-          <!-- Edit Title -->
+          <!-- Edit Judul -->
           <div class="mb-5">
-            <label class="block text-sm mb-1 opacity-80">Title</label>
+            <label class="block text-sm mb-1 opacity-80">Judul</label>
             <input
               v-model="title"
               class="w-full rounded-lg px-3 py-2 bg-[#2F3C7E] border border-[#3D4B90] 
                      focus:outline-none focus:ring-2 focus:ring-primary text-sm"
-              placeholder="Masukkan judul gambar"
+              placeholder="Masukkan judul desain"
             />
           </div>
 
           <!-- Tools -->
           <div class="space-y-3">
             <div class="flex flex-wrap gap-2">
-              <BaseButton icon="mdiImageMultiple" color="white" small outline label="Assets" />
-              <BaseButton icon="mdiFormatText" color="white" small outline label="Text" />
+              <BaseButton icon="mdiImageMultiple" color="white" small outline label="Aset" />
+              <BaseButton icon="mdiFormatText" color="white" small outline label="Teks" />
             </div>
 
             <div class="flex flex-wrap gap-2">
@@ -111,7 +110,7 @@ onMounted(() => {
           <BaseButton
             icon="mdiUploadMultiple"
             color="primary"
-            label="Upload Bulk Content"
+            label="Unggah Konten Bulk"
             class="w-full"
             @click="$router.push('/bulk-content')"
           />
@@ -120,7 +119,7 @@ onMounted(() => {
             icon="mdiDownload"
             color="white"
             outline
-            label="Download"
+            label="Unduh"
             class="w-full"
           />
         </div>

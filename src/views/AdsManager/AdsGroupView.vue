@@ -28,7 +28,7 @@ const filteredResolutions = computed(() => {
 <template>
   <LayoutAuthenticated>
     <SectionMain>
-      <!-- Judul Halaman -->
+      <!-- Judul -->
       <h1 class="text-2xl font-bold text-white mb-6">
         Ads Manager › Resolution Configuration
       </h1>
@@ -40,7 +40,7 @@ const filteredResolutions = computed(() => {
         <BaseButton
           :icon="mdiPlus"
           color="primary"
-          label="Add New Config"
+          label="Tambah Grup Iklan"
           class="!rounded-lg font-medium text-sm shadow-md hover:shadow-lg transition-all w-full sm:w-auto"
         />
 
@@ -48,7 +48,7 @@ const filteredResolutions = computed(() => {
           <BaseInput
             v-model="searchQuery"
             :icon="mdiMagnify"
-            placeholder="Search resolution..."
+            placeholder="Cari grup iklan..."
             class="w-full !rounded-lg !bg-[#5E6FAC] !border-[#2F3756] text-white placeholder-white/60 focus:ring-2 focus:ring-[#6f80c9]"
           />
         </div>
@@ -60,14 +60,12 @@ const filteredResolutions = computed(() => {
         has-table
       >
         <div class="overflow-x-auto">
-          <table
-            class="min-w-full border-collapse text-sm text-white"
-          >
+          <table class="min-w-full border-collapse text-sm text-white">
             <thead class="bg-[#2F3D79] text-white uppercase tracking-wide">
               <tr>
                 <th class="px-5 py-3 text-center whitespace-nowrap">No</th>
-                <th class="px-5 py-3 text-center whitespace-nowrap">Name</th>
-                <th class="px-5 py-3 text-center whitespace-nowrap">Actions</th>
+                <th class="px-5 py-3 text-center whitespace-nowrap">Nama Grup</th>
+                <th class="px-5 py-3 text-center whitespace-nowrap">Aksi</th>
               </tr>
             </thead>
             <tbody>
@@ -85,20 +83,22 @@ const filteredResolutions = computed(() => {
                       color="info"
                       small
                       class="hover:scale-105 transition-transform"
+                      :label="'Ubah'"
                     />
                     <BaseButton
                       :icon="mdiTrashCan"
                       color="danger"
                       small
                       class="hover:scale-105 transition-transform"
+                      :label="'Hapus'"
                     />
                   </div>
                 </td>
               </tr>
 
               <tr v-if="filteredResolutions.length === 0">
-                <td colspan="5" class="text-center py-6 text-gray-400">
-                  No results found.
+                <td colspan="3" class="text-center py-6 text-gray-400">
+                  Tidak ada hasil ditemukan.
                 </td>
               </tr>
             </tbody>

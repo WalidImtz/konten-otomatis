@@ -11,8 +11,8 @@
       <DashboardDraftGallery />
       <BaseButton
         @click="openOnboardingManual"
-        icon="mdi-help-circle"
-        class="fixed bottom-6 right-6 bg-[#F98613] hover:bg-[#ff9f3d] text-white rounded-full shadow-lg p-4"
+        label="?"
+        class="fixed bottom-6 right-6 bg-[#F98613] hover:bg-[#ff9f3d] text-white !rounded-full shadow-lg p-4"
       />
 
     </SectionMain>

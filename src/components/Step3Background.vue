@@ -1,12 +1,12 @@
 <template>
   <div class="space-y-8">
-    <!-- Main Grid -->
+    <!-- Grid Utama -->
     <div class="grid md:grid-cols-3 gap-6">
       <!-- Upload Background -->
       <CardBox id="background-upload" class="px-6 md:col-span-2">
-        <h3 class="text-lg font-semibold text-white mb-1">Upload Background Image</h3>
+        <h3 class="text-lg font-semibold text-white mb-1">Unggah Gambar Latar</h3>
         <p class="text-sm text-gray-300 mb-4">
-          Upload an image to be used as the background for your generated content.
+          Unggah gambar yang akan digunakan sebagai latar untuk konten yang dihasilkan.
         </p>
 
         <div
@@ -24,23 +24,23 @@
           <div v-if="previewUrl" class="mb-4">
             <img :src="previewUrl" alt="Preview" class="mx-auto rounded-lg max-h-60 object-cover" />
           </div>
-          <p class="text-gray-200 mb-2">Drag and drop an image here, or</p>
+          <p class="text-gray-200 mb-2">Seret dan lepaskan gambar di sini, atau</p>
           <button
             type="button"
             @click="$refs.fileInput.click()"
             class="px-5 py-2 bg-[#F98613] hover:bg-[#ff9f3d] text-white rounded-lg font-semibold shadow transition-all duration-200"
           >
-            Browse Files
+            Telusuri File
           </button>
-          <p v-if="fileName" class="text-sm text-gray-300 mt-3">Selected: {{ fileName }}</p>
+          <p v-if="fileName" class="text-sm text-gray-300 mt-3">Terpilih: {{ fileName }}</p>
         </div>
       </CardBox>
 
-      <!-- File Type Selection -->
+      <!-- Pilihan Tipe File -->
       <CardBox id="file-type-select" class="px-6">
-        <h3 class="text-lg font-semibold text-white mb-1">File Type</h3>
+        <h3 class="text-lg font-semibold text-white mb-1">Tipe File</h3>
         <p class="text-sm text-gray-300 mb-4">
-          Choose the output file format for your content.
+          Pilih format file output untuk konten Anda.
         </p>
 
         <div class="space-y-3">
@@ -48,7 +48,7 @@
             v-for="(label, key) in fileOptions"
             :key="key"
             class="flex items-center gap-3 p-3 rounded-lg border transition-all duration-200 cursor-pointer"
-            :class="[
+            :class="[ 
               fileType === key
                 ? 'border-[#F98613] bg-[#2F3756]/70 text-white shadow-lg shadow-[#F98613]/20'
                 : 'border-gray-600 text-gray-300 hover:border-[#F98613]/70 hover:shadow-md hover:shadow-[#F98613]/10'
@@ -90,7 +90,7 @@ const fileType = ref('png')
 const emit = defineEmits(['finish', 'back'])
 
 const fileOptions = {
-  png: 'PNG (Recommended)',
+  png: 'PNG (Direkomendasikan)',
   jpg: 'JPG',
   jpeg: 'JPEG',
   pdf: 'PDF',

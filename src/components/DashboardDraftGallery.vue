@@ -3,7 +3,7 @@
   <div class="flex items-center justify-between mb-4">
     <h2 class="text-lg font-semibold text-white">Draft</h2>
 
-    <!-- Toolbar kanan -->
+    <!-- Toolbar -->
     <div class="flex flex-wrap items-center justify-end gap-3 w-full md:w-auto">
       <!-- Filter -->
       <button
@@ -13,19 +13,19 @@
         Filter
       </button>
 
-      <!-- Search -->
+      <!-- Pencarian -->
       <div class="relative w-full sm:w-64">
         <BaseInput
           v-model="searchQuery"
           :icon="mdiMagnify"
-          placeholder="Search..."
+          placeholder="Cari..."
           class="w-full !rounded-lg !bg-[#5E6FAC] !border-[#2F3756] text-white placeholder-white/60 focus:ring-2 focus:ring-[#6f80c9]"
         />
       </div>
     </div>
   </div>
 
-  <!-- Grid Drafts -->
+  <!-- Grid Draft -->
   <div
     class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
   >
@@ -44,14 +44,14 @@
         {{ draft.title }}
       </div>
 
-      <!-- Hover Overlay -->
+      <!-- Overlay saat Hover -->
       <div
         class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
       >
         <button
           class="bg-primary text-white text-xs px-3 py-1 rounded-lg shadow hover:opacity-90"
         >
-          Open Draft
+          Buka Draft
         </button>
       </div>
     </div>
@@ -64,7 +64,7 @@ import BaseInput from './BaseInput.vue'
 
 const router = useRouter()
 
-// Gambar dummy dari ImageGallery.vue
+// Gambar
 const drafts = [
   { id: 1, src: './images/img1.png', title: 'Background 1' },
   { id: 2, src: './images/img2.png', title: 'Background 2' },

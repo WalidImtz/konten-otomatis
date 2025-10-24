@@ -4,7 +4,7 @@
     <div
       class="flex flex-col md:flex-row md:items-center md:justify-between gap-4"
     >
-      <h2 class="text-lg font-semibold text-white">Folders</h2>
+      <h2 class="text-lg font-semibold text-white">Folder</h2>
 
       <!-- Toolbar -->
       <div class="flex flex-wrap items-center justify-end gap-3 w-full md:w-auto">
@@ -12,7 +12,7 @@
         <BaseButton
           :icon="mdiPlus"
           color="primary"
-          label="Add New Folder"
+          label="Tambah Folder Baru"
           class="!rounded-lg font-medium text-sm shadow-md hover:shadow-lg transition-all"
         />
 
@@ -29,7 +29,7 @@
           <BaseInput
             v-model="searchQuery"
             :icon="mdiMagnify"
-            placeholder="Search folder..."
+            placeholder="Cari folder..."
             class="w-full !rounded-lg !bg-[#5E6FAC] !border-[#2F3756] text-white placeholder-white/60 focus:ring-2 focus:ring-[#6f80c9]"
           />
         </div>
@@ -59,20 +59,19 @@ import { mdiMagnify, mdiPlus } from '@mdi/js'
 import BaseButton from '@/components/BaseButton.vue'
 import BaseInput from '@/components/BaseInput.vue'
 
-const activeFolder = ref(0)
 const searchQuery = ref('')
 
 const folders = ref([
-  { name: 'Favourites' },
-  { name: 'Logos' },
-  { name: 'Backgrounds' },
-  { name: 'Icons' },
-  { name: 'Banners' },
-  { name: 'Thumbnails' },
-  { name: 'Misc' },
-  { name: 'Templates' },
-  { name: 'Exports' },
-  { name: 'Uploads' },
+  { name: 'Favorit' },
+  { name: 'Logo' },
+  { name: 'Latar Belakang' },
+  { name: 'Ikon' },
+  { name: 'Spanduk' },
+  { name: 'Thumbnail' },
+  { name: 'Lainnya' },
+  { name: 'Template' },
+  { name: 'Ekspor' },
+  { name: 'Unggahan' },
 ])
 
 const filteredFolders = computed(() => {

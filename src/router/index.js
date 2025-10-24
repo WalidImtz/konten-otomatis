@@ -11,25 +11,9 @@ const routes = [
     component: Home,
   },
   {
-    meta: {
-      title: 'Tables',
-    },
-    path: '/tables',
-    name: 'tables',
-    component: () => import('@/views/TablesView.vue'),
-  },
-  {
     path: '/create-content',
     name: 'create-content',
     component: () => import('@/views/CreateContentView.vue'),
-  },
-  {
-    meta: {
-      title: 'Forms',
-    },
-    path: '/forms',
-    name: 'forms',
-    component: () => import('@/views/FormsView.vue'),
   },
   {
     meta: {
@@ -38,22 +22,6 @@ const routes = [
     path: '/profile',
     name: 'profile',
     component: () => import('@/views/ProfileView.vue'),
-  },
-  {
-    meta: {
-      title: 'Ui',
-    },
-    path: '/ui',
-    name: 'ui',
-    component: () => import('@/views/UiView.vue'),
-  },
-  {
-    meta: {
-      title: 'Responsive layout',
-    },
-    path: '/responsive',
-    name: 'responsive',
-    component: () => import('@/views/ResponsiveView.vue'),
   },
   {
     meta: {

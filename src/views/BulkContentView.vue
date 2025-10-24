@@ -5,11 +5,11 @@
       <div class="space-y-8">
         <div class="grid md:grid-cols-3 gap-6">
           
-          <!-- Upload Excel File -->
+          <!-- Unggah File Excel -->
           <CardBox class="px-6 md:col-span-2">
-            <h3 class="text-lg font-semibold text-white mb-1">Upload Data Excel</h3>
+            <h3 class="text-lg font-semibold text-white mb-1">Unggah Data Excel</h3>
             <p class="text-sm text-gray-300 mb-4">
-              Upload file Excel yang berisi data untuk membuat konten secara massal.
+              Unggah file Excel yang berisi data untuk membuat konten secara massal.
             </p>
 
             <div
@@ -33,18 +33,18 @@
                 @click="$refs.fileInput.click()"
                 class="px-5 py-2 bg-[#F98613] hover:bg-[#ff9f3d] text-white rounded-lg font-semibold shadow transition-all duration-200"
               >
-                Browse Files
+                Telusuri File
               </button>
               <p v-if="fileName" class="text-sm text-gray-300 mt-3">File berhasil dipilih.</p>
             </div>
           </CardBox>
 
-          <!-- Change Background + Download Template -->
+          <!-- Ganti Background + Unduh Template -->
           <div class="flex flex-col gap-6">
             
-            <!-- Change Background -->
+            <!-- Ganti Background -->
             <CardBox class="px-6">
-              <h3 class="text-lg font-semibold text-white mb-1">Change Background</h3>
+              <h3 class="text-lg font-semibold text-white mb-1">Ganti Background</h3>
               <p class="text-sm text-gray-300 mb-4">
                 Pilih background dari Asset Library untuk diterapkan pada semua konten.
               </p>
@@ -52,7 +52,7 @@
                 <img
                   v-if="previewImage"
                   :src="previewImage"
-                  alt="Selected Background"
+                  alt="Background Terpilih"
                   class="object-cover w-full h-full rounded-lg"
                 />
                 <span v-else>Tidak ada gambar dipilih</span>
@@ -66,9 +66,9 @@
               </button>
             </CardBox>
 
-            <!-- Download Template Bulk -->
+            <!-- Unduh Template Bulk -->
             <CardBox class="px-6 text-center">
-              <h3 class="text-lg font-semibold text-white mb-3">Download Template Bulk</h3>
+              <h3 class="text-lg font-semibold text-white mb-3">Unduh Template Bulk</h3>
               <p class="text-sm text-gray-300 mb-4">
                 Unduh template Excel agar format kolom sesuai sistem.
               </p>
@@ -77,7 +77,7 @@
                 @click="downloadTemplate"
                 class="px-5 py-2 bg-[#F98613] hover:bg-[#ff9f3d] text-white rounded-lg font-semibold shadow transition-all duration-200 w-full"
               >
-                Download Template
+                Unduh Template
               </button>
             </CardBox>
 
@@ -91,14 +91,14 @@
           @click="goBack"
           class="px-8 py-3 bg-gray-600 hover:bg-gray-700 text-white text-base font-semibold rounded-xl shadow-md transition-all duration-200"
         >
-          Back
+          Kembali
         </button>
 
         <button
           @click="generateBulk"
           class="px-10 py-3 bg-[#F98613] hover:bg-[#ff9f3d] text-white text-base font-semibold rounded-xl shadow-md transition-all duration-200"
         >
-          Generate Image
+          Buat Gambar
         </button>
       </div>
     </SectionMain>
@@ -133,16 +133,16 @@ const handleDrop = (event) => {
 }
 
 const openAssetLibrary = () => {
-  alert('📁 Simulasi membuka Asset Library (dummy)')
+  alert('Simulasi membuka Asset Library (dummy)')
   previewImage.value = 'https://placehold.co/600x400/5E6FAC/FFFFFF?text=Background+Preview'
 }
 
 const downloadTemplate = () => {
-  alert('⬇️ Simulasi unduh template Excel')
+  alert('⬇Simulasi unduh template Excel')
 }
 
 const generateBulk = () => {
-  alert('🚀 Simulasi proses generate konten massal')
+  alert('Simulasi proses membuat konten massal')
 }
 
 const goBack = () => {

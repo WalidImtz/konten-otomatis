@@ -96,7 +96,7 @@ const menuClick = (event) => {
           isDropdownActive ? 'max-h-[500px]' : 'max-h-0',
           props.collapsed
             ? 'pl-0 border-l-0'
-            : 'pl-6 border-l border-[#223381] bg-[#34458E]'
+            : 'pl-6 border-l border-[#223381]'
         ]"
       />
     </transition>

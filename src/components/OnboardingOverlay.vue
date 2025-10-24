@@ -4,11 +4,13 @@
       v-if="onboarding.isActive"
       class="fixed inset-0 z-[100] pointer-events-none"
     >
-      <!-- Overlay utama -->
+      <!-- Overlay utama dengan mask -->
       <svg class="absolute inset-0 w-full h-full z-[100]" style="pointer-events: none;">
         <defs>
           <mask id="hole-mask">
+            <!-- Lapisan gelap seluruh layar -->
             <rect width="100%" height="100%" fill="white" />
+            <!-- Lubang transparan untuk highlight -->
             <rect
               v-if="highlightRect"
               :x="highlightRect.left"
@@ -22,6 +24,7 @@
           </mask>
         </defs>
 
+        <!-- Lapisan blur gelap di luar lubang -->
         <rect
           width="100%"
           height="100%"
@@ -30,7 +33,7 @@
           mask="url(#hole-mask)"
         />
 
-        <!-- Border highlight -->
+        <!-- Border glowing di sekitar target -->
         <rect
           v-if="highlightRect"
           :x="highlightRect.left - 4"
@@ -49,7 +52,7 @@
       <!-- Popup onboarding -->
       <div
         v-if="stepData"
-        class="fixed z-[101] max-w-md bg-[#1b2042] text-white rounded-xl shadow-xl p-6 text-center pointer-events-auto transition-all duration-300"
+        class="fixed z-[101] max-w-md bg-[#1b2042] text-white rounded-xl shadow-xl p-6 text-center pointer-events-auto"
         :style="popupStyle"
       >
         <h3 class="text-xl font-bold mb-3">{{ stepData.title }}</h3>
@@ -97,6 +100,7 @@ const updateHighlight = async () => {
   }
 
   const rect = targetEl.getBoundingClientRect()
+
   highlightRect.value = {
     top: rect.top,
     left: rect.left,
@@ -104,51 +108,14 @@ const updateHighlight = async () => {
     height: rect.height,
   }
 
-  popupStyle.value = getAdaptivePopupPosition(rect)
-}
-
-const getAdaptivePopupPosition = (rect) => {
-  const viewportHeight = window.innerHeight
-  const viewportWidth = window.innerWidth
-
-  // step 8: tetap di bawah area upload
   if (stepData.value?.id === 8) {
-    return {
+    popupStyle.value = {
       top: `${rect.bottom + 20}px`,
       left: `${rect.left + rect.width / 2}px`,
       transform: 'translateX(-50%)',
-    }
-  }
-
-  // posisi adaptif
-  if (rect.top < viewportHeight / 3) {
-    // target di atas → popup di bawah
-    return {
-      top: `${rect.bottom + 20}px`,
-      left: `${rect.left + rect.width / 2}px`,
-      transform: 'translateX(-50%)',
-    }
-  } else if (rect.bottom > (2 * viewportHeight) / 3) {
-    // target di bawah → popup di atas
-    return {
-      top: `${rect.top - 180}px`,
-      left: `${rect.left + rect.width / 2}px`,
-      transform: 'translateX(-50%)',
-    }
-  } else if (rect.left < viewportWidth / 2) {
-    // target di kiri → popup di kanan
-    return {
-      top: `${rect.top + rect.height / 2}px`,
-      left: `${rect.right + 30}px`,
-      transform: 'translateY(-50%)',
     }
   } else {
-    // target di kanan → popup di kiri
-    return {
-      top: `${rect.top + rect.height / 2}px`,
-      left: `${rect.left - 330}px`,
-      transform: 'translateY(-50%)',
-    }
+    popupStyle.value = centerPopup()
   }
 }
 
@@ -169,6 +136,7 @@ onBeforeUnmount(() => {
   window.removeEventListener('scroll', handleScrollOrResize)
   window.removeEventListener('resize', handleScrollOrResize)
 })
+
 watch(() => onboarding.currentStep, updateHighlight)
 </script>
 
